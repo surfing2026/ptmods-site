@@ -179,7 +179,9 @@
     .tbl td:first-child { color:#00ff41; min-width:140px; }
 
     /* PLANOS */
-    .planos-grid { display:flex; gap:14px; flex-wrap:wrap; padding-left:20px; margin-top:10px; }
+    .planos-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; padding-left:0; margin-top:10px; }
+    @media(max-width:900px){ .planos-grid { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:500px){ .planos-grid { grid-template-columns:1fr; } }
     .plano-card {
       border:1px solid #00ff4144;
       border-radius:4px;
@@ -242,7 +244,7 @@
       <!-- BOOT SEQUENCE -->
       <div class="line"><span class="output-dim">[BOOT]</span> <span class="white">Inicializando PTMODS RP Server...</span></div>
       <div class="line"><span class="output-dim">[SYS ]</span> <span class="output">Kernel: FiveM Build 25770 </span><span class="yellow">OK</span></div>
-      <div class="line"><span class="output-dim">[NET ]</span> <span class="output">Endpoint: 178.104.177.175:30120 </span><span class="yellow">LISTEN</span></div>
+      <div class="line"><span class="output-dim">[NET ]</span> <span class="output">Endpoint: 134.255.233.8:30346 </span><span class="yellow">LISTEN</span></div>
       <div class="line"><span class="output-dim">[DB  ]</span> <span class="output">Whitelist carregada </span><span class="yellow">OK</span></div>
       <div class="line"><span class="output-dim">[SRV ]</span> <span class="output">Status: </span><span class="status-on">● ONLINE</span></div>
       <div class="line"><span class="output-dim">[PLR ]</span> <span class="output">Jogadores: 0/32</span></div>
@@ -304,7 +306,7 @@
         <div id="secAlternativo" class="hidden" style="margin-top:10px">
           <div class="line output-dim">Abre o FiveM → Direct Connect → cola o endereço:</div>
           <div class="line" style="padding-left:20px; margin-top:4px;">
-            <span style="background:#0a2a0a; border:1px solid #00ff4144; padding:6px 14px; border-radius:4px; color:#f1fa8c; letter-spacing:2px;">178.104.177.175:30120</span>
+            <span style="background:#0a2a0a; border:1px solid #00ff4144; padding:6px 14px; border-radius:4px; color:#f1fa8c; letter-spacing:2px;">134.255.233.8:30346</span>
           </div>
         </div>
       </div>
@@ -356,40 +358,59 @@
         <span class="prompt-path">ptmods@server</span><span class="prompt-sym">:~$ </span>
         <span class="white">cat planos_acesso.cfg</span>
       </div>
-      <div class="line output" style="margin-top:6px">3 planos disponíveis — acesso vitalício:</div>
+      <div class="line output" style="margin-top:6px">4 planos disponíveis:</div>
       <div class="planos-grid" style="margin-top:12px">
         <div class="plano-card">
           <h3>// STARTER</h3>
-          <div class="price">10€</div>
+          <div class="price">10€<span style="font-size:0.45em;color:#888;margin-left:6px;">/mês</span></div>
           <ul>
-            <li>Acesso completo</li>
-            <li>Recursos base</li>
-            <li>Suporte prioritário</li>
+            <li>Acesso Whitelist</li>
+            <li>$25,000 inicial</li>
+            <li>Carro: Sultan RS</li>
+            <li>Kit de início</li>
+            <li>Tag [STARTER]</li>
           </ul>
-          <a href="https://paypal.me/digitalium" target="_blank">Comprar →</a>
         </div>
         <div class="plano-card featured">
           <h3>// ELITE ★</h3>
-          <div class="price" style="color:#ff79c6">20€</div>
+          <div class="price" style="color:#ff79c6">20€<span style="font-size:0.45em;color:#888;margin-left:6px;">/mês</span></div>
           <ul>
             <li>Tudo do Starter</li>
-            <li>Veículos exclusivos</li>
-            <li>VIP no Discord</li>
-            <li>Acesso antecipado</li>
+            <li>$100,000 inicial</li>
+            <li>Buffalo STX + Moto</li>
+            <li>Priority Queue</li>
+            <li>Apartamento Premium</li>
+            <li>Tag 💎 [ELITE]</li>
           </ul>
-          <a href="https://paypal.me/digitalium" target="_blank">Comprar →</a>
         </div>
-        <div class="plano-card">
-          <h3>// FREE PASS</h3>
-          <div class="price" style="color:#778877">0€</div>
+        <div class="plano-card" style="border-color:#00e5ff55;">
+          <h3 style="color:#00e5ff;">// IMMORTAL ⚡</h3>
+          <div class="price" style="color:#00e5ff;font-size:1.3em;">79.99€</div>
+          <div style="color:#00e5ff;font-size:0.7em;margin-bottom:8px;">🔥 LIFETIME — paga uma vez</div>
           <ul>
-            <li>Convite pessoal</li>
-            <li>Só amigos</li>
+            <li>Tudo do Elite</li>
+            <li>$500,000 inicial</li>
+            <li>Acesso vitalício</li>
+            <li>Supercarros exclusivos</li>
+            <li>VIP máximo</li>
+            <li>Tag ⚡ [IMMORTAL]</li>
           </ul>
-          <a href="#" style="background:#1a2a1a; color:#556655; cursor:default;">Via Discord</a>
+        </div>
+        <div class="plano-card" style="border-color:#a855f755;">
+          <h3 style="color:#a855f7;">// REFERRAL 🤝</h3>
+          <div class="price" style="color:#a855f7;font-size:1.2em;">50% OFF</div>
+          <div style="color:#a855f7;font-size:0.7em;margin-bottom:8px;">para quem convida</div>
+          <ul>
+            <li>Convida 1 amigo</li>
+            <li>Amigo compra qualquer pack</li>
+            <li>Tu recebes 50% desconto</li>
+            <li>Elite: 20€ → 10€</li>
+            <li>Immortal: ~40€</li>
+            <li>Usa !referral no Discord</li>
+          </ul>
         </div>
       </div>
-      <div class="line output-dim" style="margin-top:14px">// Whitelist ativada em até 24h após confirmação do pagamento.</div>
+      <div class="line output-dim" style="margin-top:14px">// Starter e Elite são mensais. Immortal é lifetime. Referral = desconto só para quem convida.</div>
     </div>
   </div>
 
@@ -408,20 +429,41 @@
       </div>
       <div class="line output" style="margin-top:6px">Métodos de pagamento aceites:</div>
       <div class="pay-grid">
-        <div class="pay-item">
-          <div class="label">💳 PAYPAL</div>
-          <div class="val">paypal.me/digitalium</div>
+        <div class="pay-item" style="border-color:#22c55e55;">
+          <div class="label" style="color:#22c55e;">⚡ AUTOMÁTICO <span style="font-size:0.75em;background:#22c55e22;padding:1px 6px;border-radius:10px;">acesso imediato</span></div>
+          <div class="val">₿ SOL — usa <strong>!comprar</strong> no Discord</div>
+          <div class="val">₿ BTC — bot activa em segundos</div>
         </div>
-        <div class="pay-item">
-          <div class="label">🏦 IBAN</div>
-          <div class="val">PT50 0033 0000 4537 2144 3060 5</div>
-        </div>
-        <div class="pay-item">
-          <div class="label">₿ BITCOIN</div>
-          <div class="val">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</div>
+        <div class="pay-item" style="border-color:#f9731655;">
+          <div class="label" style="color:#f97316;">⏱️ MANUAL <span style="font-size:0.75em;background:#f9731622;padding:1px 6px;border-radius:10px;">até 24h</span></div>
+          <div class="val">🏦 IBAN: PT50 0033 0000 4537 2144 3060 5</div>
+          <div class="val">💙 PayPal: paypal.me/digitalium</div>
         </div>
       </div>
-      <div class="line output-dim" style="margin-top:12px">// Após pagamento envia comprovativo no Discord para ativação da whitelist.</div>
+      <div class="line output" style="margin-top:14px;color:#50fa7b;">// como-funciona.sh --bifurcacao</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px;">
+        <div style="border:1px solid #22c55e44;border-top:2px solid #22c55e;border-radius:8px;padding:12px;background:#0a1a0a;">
+          <div style="color:#22c55e;font-size:0.82em;font-weight:bold;margin-bottom:8px;">⚡ CRYPTO (automático)</div>
+          <div style="color:#aaa;font-size:0.78em;line-height:1.8;">
+            <span style="color:#22c55e;">1.</span> Escolhe o pacote acima<br>
+            <span style="color:#22c55e;">2.</span> Usa <strong style="color:#fff;">!comprar</strong> no Discord<br>
+            <span style="color:#22c55e;">3.</span> Bot dá endereço SOL/BTC<br>
+            <span style="color:#22c55e;">4.</span> Envia o valor exacto<br>
+            <span style="color:#22c55e;">5.</span> Acesso activo em segundos 🎉
+          </div>
+        </div>
+        <div style="border:1px solid #f9731644;border-top:2px solid #f97316;border-radius:8px;padding:12px;background:#1a0f0a;">
+          <div style="color:#f97316;font-size:0.82em;font-weight:bold;margin-bottom:8px;">🏦 IBAN/PAYPAL (manual)</div>
+          <div style="color:#aaa;font-size:0.78em;line-height:1.8;">
+            <span style="color:#f97316;">1.</span> Escolhe o pacote e valor<br>
+            <span style="color:#f97316;">2.</span> Paga por IBAN ou PayPal<br>
+            <span style="color:#f97316;">3.</span> Envia comprovativo em <strong style="color:#fff;">#pedir-acesso</strong><br>
+            <span style="color:#f97316;">4.</span> Staff verifica (até 24h)<br>
+            <span style="color:#f97316;">5.</span> Confirmação por DM 🎮
+          </div>
+        </div>
+      </div>
+      <div class="line output-dim" style="margin-top:12px">// Após pagamento manual envia comprovativo no Discord para ativação.</div>
       <div class="line" style="margin-top:10px">
         <span class="prompt-path">ptmods@server</span><span class="prompt-sym">:~$ </span>
         <span class="cursor"></span>
